@@ -1,17 +1,26 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("omkesh.jadhav@gmail.com");
+    const [password, setPassword] = useState("Omkesh@123");
 
-    const hanldeLogIn = () => {
-
+    const handleLogin = async () => {
+        try {
+            const res = await axios.post('http://localhost:7878/login', {
+                emailId: email,
+                password: password
+            }, {withCredentials: true})
+            console.log(res)
+        } catch (error) {
+            console.log("ERROR: " + error.message)
+        }
     }
 
     return (
         <div className="flex items-center justify-center min-h-[calc(100vh-128px)] px-4">
 
-            <div className="card card-side bg-base-100 shadow-xl w-3xl p-4 rounded-xl">
+            <div className="card card-side bg-base-100 shadow-xl max-w-3xl p-4 rounded-xl">
 
                 {/* Image */}
                 <figure>
@@ -50,7 +59,7 @@ const Login = () => {
                     <div className="card-actions justify-end mt-4">
                         <button
                             className="btn btn-primary"
-                            onClick={hanldeLogIn}
+                            onClick={handleLogin}
                         >
                             Login
                         </button>
