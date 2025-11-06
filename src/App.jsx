@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Body from "./components/Body"
 import Profile from "./pages/Profile"
 import Login from "./pages/Login"
-import Provider from "react-redux"
+import { Provider } from "react-redux"
 import appStore from "./store/appStore"
 
 function App() {
