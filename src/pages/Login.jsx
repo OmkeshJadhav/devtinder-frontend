@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { useDispatch } from "react-redux";
+import { addUser } from "../store/slices/userSlice";
 
 const Login = () => {
-    const [email, setEmail] = useState("omkesh.jadhav@gmail.com");
+    const [emailId, setEmailId] = useState("omkesh.jadhav@gmail.com");
     const [password, setPassword] = useState("Omkesh@123");
+    const dispatch = useDispatch()
 
     const handleLogin = async () => {
         try {
             const res = await axios.post('http://localhost:7878/login', {
-                emailId: email,
+                emailId: emailId,
                 password: password
-            }, {withCredentials: true})
-            console.log(res)
+            }, { withCredentials: true });
+            // console.log(res.data);
+            dispatch(addUser(res.data))
         } catch (error) {
             console.log("ERROR: " + error.message)
         }
@@ -42,8 +46,8 @@ const Login = () => {
                         <input
                             type="email"
                             placeholder="Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={emailId}
+                            onChange={(e) => setEmailId(e.target.value)}
                             className="input input-bordered w-full"
                         />
 
