@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import axios from 'axios';
 import { useDispatch } from "react-redux";
 import { addUser } from "../store/slices/userSlice";
+import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
     const [emailId, setEmailId] = useState("omkesh.jadhav@gmail.com");
     const [password, setPassword] = useState("Omkesh@123");
+    const [error, setError] = useState("")
     const dispatch = useDispatch()
     const baseUrl = import.meta.env.VITE_BASE_URL;
+    const navigate = useNavigate()
 
     const handleLogin = async () => {
         try {
@@ -18,8 +21,9 @@ const Login = () => {
             }, { withCredentials: true });
             // console.log(res.data);
             dispatch(addUser(res.data))
+            return navigate("/feed")
         } catch (error) {
-            console.log("ERROR: " + error.message)
+            setError(error.response.data)
         }
     }
 
@@ -54,13 +58,15 @@ const Login = () => {
                         />
 
                         <input
-                            type="password"
+                            type="text"
                             placeholder="Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className="input input-bordered w-full"
                         />
                     </div>
+
+                    <p className="text-red-500">{error}</p>
 
                     <div className="card-actions justify-end mt-4">
                         <button
