@@ -3,14 +3,16 @@ import axios from 'axios';
 import { useDispatch } from "react-redux";
 import { addUser } from "../store/slices/userSlice";
 
+
 const Login = () => {
     const [emailId, setEmailId] = useState("omkesh.jadhav@gmail.com");
     const [password, setPassword] = useState("Omkesh@123");
     const dispatch = useDispatch()
+    const baseUrl = import.meta.env.VITE_BASE_URL;
 
     const handleLogin = async () => {
         try {
-            const res = await axios.post('http://localhost:7878/login', {
+            const res = await axios.post(`${baseUrl}/login`, {
                 emailId: emailId,
                 password: password
             }, { withCredentials: true });
