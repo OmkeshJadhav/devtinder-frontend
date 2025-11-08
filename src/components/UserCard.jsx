@@ -1,7 +1,6 @@
 import React from 'react'
 
 const UserCard = ({ users }) => {
-    // If users is a single object, wrap it in an array
     const userList = Array.isArray(users) ? users : [users];
 
     return (
