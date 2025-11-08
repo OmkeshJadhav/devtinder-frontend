@@ -7,7 +7,7 @@ const EditProfile = ({ user }) => {
     const [age, setAge] = useState(user.age);
     const [gender, setGender] = useState(user.gender)
     const [image, setImage] = useState(user.image);
-    const [password, setPassword] = useState("Omkesh@123");
+    const [password, setPassword] = useState(user.password);
     const [skills, setSkills] = useState(user.skills);
     const [about, setAbout] = useState(user.about);
     const [error, setError] = useState(false);
@@ -51,17 +51,6 @@ const EditProfile = ({ user }) => {
                             />
 
                             <label className="label">
-                                <span className="label-text font-medium">Gender</span>
-                            </label>
-                            <input
-                                type="text"
-                                placeholder="Gender"
-                                value={gender}
-                                onChange={(e) => setGender(e.target.value)}
-                                className="input input-bordered w-full"
-                            />
-
-                            <label className="label">
                                 <span className="label-text font-medium">Email</span>
                             </label>
                             <input
@@ -70,6 +59,17 @@ const EditProfile = ({ user }) => {
                                 value={user.emailId}
                                 className="input input-bordered w-full"
                                 disabled
+                            />
+
+                            <label className="label">
+                                <span className="label-text font-medium">Gender</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Gender"
+                                value={gender}
+                                onChange={(e) => setGender(e.target.value)}
+                                className="input input-bordered w-full"
                             />
 
                             <label className="label">
@@ -95,15 +95,15 @@ const EditProfile = ({ user }) => {
                             />
 
                             {/* <label className="label">
-                            <span className="label-text font-medium">Password</span>
-                        </label>
-                        <input
-                            type="text"
-                            placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="input input-bordered w-full"
-                        /> */}
+                                <span className="label-text font-medium">Password</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="input input-bordered w-full"
+                            /> */}
 
                             <label className="label">
                                 <span className="label-text font-medium">Skills</span>
@@ -119,12 +119,11 @@ const EditProfile = ({ user }) => {
                             <label className="label">
                                 <span className="label-text font-medium">About</span>
                             </label>
-                            <input
-                                type="text"
-                                placeholder="text"
+                            <textarea 
                                 value={about}
-                                onChange={(e) => setAbout(e.target.value)}
-                                className="input input-bordered w-full"
+                                placeholder="About"
+                                onChange={(e) => setAbout(e.target.value)} 
+                                className="textarea" 
                             />
                         </div>
 
