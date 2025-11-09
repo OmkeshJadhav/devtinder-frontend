@@ -10,7 +10,7 @@ const Feed = () => {
     const feeds = useSelector((store) => store.feed)
     // console.log(feeds)
 
-    const getFeed = async () => { 
+    const getFeed = async () => {
         try {
             const res = await axios.get(`${base_url}/feed`, { withCredentials: true })
             console.log(res)
@@ -23,6 +23,18 @@ const Feed = () => {
     useEffect(() => {
         getFeed()
     }, [])
+
+    if (!feeds) return;
+
+    if (feeds.length <= 0) {
+        return (
+            <h1
+                className='flex justify-center mx-auto my-28 font-extrabold text-2xl'
+            >
+                You have finished all the available users.
+            </h1>
+        )
+    }
 
     return (
         <div className='flex justify-center m-30'>
