@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
-    const [emailId, setEmailId] = useState("omkesh.jadhav@gmail.com");
-    const [password, setPassword] = useState("Omkesh@123");
+    const [emailId, setEmailId] = useState("dipti.chalke@gmail.com");
+    const [password, setPassword] = useState("Dipti@123");
     const [error, setError] = useState("")
     const dispatch = useDispatch()
     const baseUrl = import.meta.env.VITE_BASE_URL;
