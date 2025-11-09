@@ -51,7 +51,7 @@ const Login = () => {
                 <figure>
                     <img
                         className="w-60 h-full object-cover rounded-xl"
-                        src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                        src="https://tfgmedia.co.za/wp-content/uploads/2024/02/26-The-science-of-connection-01-FI-1536x1229.jpg"
                         alt="Login visual"
                     />
                 </figure>
@@ -101,7 +101,7 @@ const Login = () => {
                         />
 
                         <input
-                            type="text"
+                            type="password"
                             placeholder="Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
