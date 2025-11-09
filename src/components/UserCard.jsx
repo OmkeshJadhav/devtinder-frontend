@@ -53,13 +53,13 @@ const UserCard = ({ users }) => {
 
                                 <div className="card-actions justify-center mt-4">
                                     <button
-                                        className="btn btn-sm bg-purple-700 hover:bg-purple-800 text-secondary"
+                                        className="btn btn-sm bg-red-500 text-black"
                                         onClick={() => handleRequests('ignored', _id)}
                                     >
                                         Ignore
                                     </button>
                                     <button
-                                        className="btn btn-sm bg-purple-700 hover:bg-purple-800 text-primary"
+                                        className="btn btn-sm bg-green-500 text-black"
                                         onClick={() => handleRequests('interested', _id)}
                                     >
                                         Interested
